@@ -9,6 +9,9 @@
   --paragraph: hsl(210, 9%, 31%);
 
   --brand-beige: hsl(39, 100%, 97%);
+  --brand-light: hsl(148, 23%, 89%);
+
+  --nav-height: 7.2rem;
 
   font-size: 62.5%; /* 1rem = 10px */
 }
@@ -18,29 +21,48 @@ body {
   text-align: center;
 }
 
+.wrapper{
+width: 37.5rem;
+  margin-inline: auto;
+}
+
+/*==============HEADER==============*/
+
 header {
   width: 37.5rem;
   margin-right: auto;
   margin-left: auto;
 
-  margin-top: 4.1rem;
-
+  margin-top: calc(4.1rem + var(--nav-height));
 }
 
-h4 {
+header::before{
+  content: "";
+  width: 100vh;
+  height: calc(108rem + var(--nav-height) );
+  background-color: var(--brand-light);
+  display: block;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+header h4 {
   font-size: 14px;
   color: var(--primary-color);
   margin-bottom: 1.6rem;
 }
 
-h1 {
+header h1 {
   font-size: 3.4rem;
   color: var(--headline);
   line-height: 130%;
   margin-bottom: 2.4rem;
 }
 
-p {
+header p {
   font-size: 1.8rem;
   line-height: 150%;
   font-weight: 400;
@@ -48,7 +70,7 @@ p {
   margin-bottom: 3.2rem;
 }
 
-button {
+header button {
   background: var(--primary-color);
   border: none;
   border-radius: 4rem;
@@ -72,12 +94,21 @@ button {
   margin-right: auto;
 }
 
+header img {
+  width: 26.4rem;
+  display: block;
+  margin-inline: auto;
+  object-position: 0 2rem;
+}
+
 .stats{
   width: 32.7rem;
-  height: 47rem;
+  padding-block: 4rem;
   margin-inline: auto;
 
   background-color: var(--brand-beige);
+  border: 1px solid var(--brand-light);
+  border-radius: .6rem;
 
   display: flex;
   flex-direction: column;
@@ -85,6 +116,53 @@ button {
   gap: 6rem;
 }
 
+.stat h3 {
+  font-size: 4.8rem;
+  color: var(--headline);
+  line-height: 130%;
+
+  margin-bottom: 0.4rem;
+}
+
 .stat p{
   margin: 0;
+  color: var(--primary-color);
+  font-size: 1.6rem;
+  line-height: 150%;
 }
+
+/*==============NAVIGATION==============*/
+
+nav {
+  display: flex;
+  
+  height: var(--nav-height);
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+nav .wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav.scroll {
+  background-color: var(--primary-color);
+  width: 100vw;
+}
+
+nav.scroll svg:nth-child(1) path{
+  fill: #fff;
+}
+
+nav.scroll svg:nth-child(2) path{
+  stroke: #fff;
+}
+
+
+
+
+
