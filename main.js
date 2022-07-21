@@ -1,3 +1,6 @@
+window.addEventListener('scroll', onscroll)
+
+onScroll()
 function onScroll() {
   showNavOnScroll()
   showBackToTopButtonOnScroll()
