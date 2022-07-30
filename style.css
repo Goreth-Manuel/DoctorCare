@@ -482,6 +482,7 @@ footer .social-links {
 /*=================Geral=================*/
 .wrapper {
   width: min(112rem, 100%);
+  display: grid;
 }
 
 /*=================Navigation=================*/
